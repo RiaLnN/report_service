@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { font-family: sans-serif; }
+        .repo { border-bottom: 1px solid #ccc; padding: 10px; }
+        h2 { color: #24292e; }
+        .stars { color: #f1c40f; }
+    </style>
+</head>
+<body>
+    <h1>Github Trending Report</h1>
+    {% for repo in repos %}
+    <div class="repo">
+        <h2>{{ repo.author }} / {{ repo.title }}</h2>
+        <p>{{ repo.description }}</p>
+        <p><strong>Lang:</strong> {{ repo.language}} |
+            <span class="stars">&#10027; {{ repo.stars }}</span> |
+            Forks: {{ repo.forks }}
+        </p>
+        <a href="{{ repo.link }}">View on Github</a>
+    </div>
+    {% endfor %}
+</body>
+</html>

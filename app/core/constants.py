@@ -1,0 +1,1 @@
+GIT_HUB_TRENDING_URL = 'https://github.com/trending'
