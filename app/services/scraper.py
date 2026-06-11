@@ -1,4 +1,4 @@
-from app.core.constants import GIT_HUB_TRENDING_URL
+from core.constants import GIT_HUB_TRENDING_URL
 from bs4 import BeautifulSoup
 import httpx
 

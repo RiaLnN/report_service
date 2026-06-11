@@ -1,0 +1,21 @@
+services:
+  app:
+    build:
+      context: app/
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - redis
+    environment:
+      MAIL: ${MAIL}
+      MAIL_PASSWORD: ${MAIL_PASSWORD}
+  celery-beat:
+    build:
+      context: app/
+    command: ["celery", "-A", "tasks", "beat", "--loglevel=INFO"]
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
